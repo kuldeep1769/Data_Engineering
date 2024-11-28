@@ -1,0 +1,151 @@
+Use Case:
+----------
+we have different jobs name ,each jobs name have different pipeline.
+so in case we have any changes in these pipeline configuration and different entity.
+so we want to automate this process and save these pipeline details in .json format.
+
+Job -> [XYZ.financeABC, XYZ.financeUVZ]
+
+XYZ.financeABC -> [ A1, A2, A3, A4,A5]
+
+Save like A1.json
+A2.json
+
+---- Sample expected output -----
+
+{
+    "pipelineName": "ABC.data.finance.gtpaapisourcelimitaccess",
+    "pipelineDescription": "Glue TPA for Source Limit Access",
+    "runbookInfo": "https://wiki.ABC.com/display/GEBAS/Modernize+Finance+Data",
+    "owner": "Kalyan Chowdam",
+    "ownerEmail": "kalyan_chowdam@ABC.com",
+    "assetConfiguration": {
+        "assetId": "3101871836644733287",
+        "name": "gtpaApiSourceLimitAccess",
+        "longName": null,
+        "type": "dataPipeline",
+        "projectId": "b78f5c7c-5da6-4584-acb9-c00fc0ca8832",
+        "projectName": "bpp-data-finance-aha",
+        "projectAssetId": "8073845825251940801",
+        "businessUnitId": "370",
+        "businessUnitName": "Tech - DSE - EDR",
+        "capabilityId": "2963",
+        "capabilityShortName": "entdataproc",
+        "infraSetId": "pkmopksa-gpaz-5arr-ht2g-6haoczld4u89",
+        "infraSetName": "ABC Data Platform",
+        "lifecycle": "GENERALLY_AVAILABLE",
+        "tier": "TIER_3",
+        "subType": "PIPELINE",
+        "jira": null
+    },
+    "aclConfiguration": {
+        "platformProjectAdminAssetId": null,
+        "platformManage": false,
+        "pipelineAdminAssetId": null
+    },
+    "projectAssetID": "8073845825251940801",
+    "pipelineAssetID": "3101871836644733287",
+    "platformName": null,
+    "restartProcessorsOnError": true,
+    "restartProcessorsTimes": 3,
+    "executionContext": {
+        "executionBase": "TIME",
+        "triggerCondition": null,
+        "schedulerInfo": {
+            "calendar": {
+                "minute": "30",
+                "hour": "4",
+                "dayOfMonth": "*",
+                "month": "*",
+                "dayOfWeek": "*"
+            },
+            "scheduleSuspended": false,
+            "timezone": "America/Los_Angeles"
+        },
+        "concurrencyPolicy": "FORBID_NEW",
+        "schedulerType": "ARGO",
+        "tidalJob": null,
+        "downstreamActions": null,
+        "triggerConditionEventsReset": null,
+        "logLevel": "INFO",
+        "postExecutionConditionFilter": null
+    },
+    "pipelineNotificationInfo": {
+        "email": "data-finance-oncall@ABC.com",
+        "errorEmail": "data-finance-oncall@ABC.com",
+        "notificationTypes": [
+            "FAILED"
+        ]
+    },
+    "runtimeConfiguration": {
+        "namespaceName": "data-finance-ahac7-usw2-prd",
+        "clusterName": "bpp-dl3-prd-usw2-k8s",
+        "environment": "PRD",
+        "runtimeEngine": "NONSPARK",
+        "logLevel": "INFO",
+        "emrClusterConfiguration": null,
+        "databricksClusterConfiguration": null,
+        "dslConfiguration": null,
+        "billingTags": null,
+        "customComputeTags": null
+    },
+    "processorsList": [
+        {
+            "processorName": "gtpaApiSourceLimitAccess",
+            "runtimeUuid": "ce9f74eb-8d8e-4c65-9310-aff0751acd42",
+            "processorType": "ARTIFACTORY_GENERIC",
+            "artifactUrl": "docker.ABC.com/data-common/bpp-ids-procs/service/glue_tpa:prd_latest",
+            "restartOnError": null,
+            "restartTimes": null,
+            "runtimeConfiguration": {
+                "artifactVersion": null,
+                "sparkVersion": null,
+                "inputSchemaType": null,
+                "inputMetadataSchema": null,
+                "outputSchemaType": null,
+                "outputMetadataSchema": null,
+                "mdrProcessorDescription": null,
+                "processorRuntimeConfiguration": null,
+                "runtimeFilePath": "/data/glue-tpa/scripts/run_glue_job.sh",
+                "runtimeArguments": "-n edr-fin-glue-tpa-aha-prd -p aha -e prd -d fin -s 2",
+                "runtimeCommands": null,
+                "runtimeMainClass": null,
+                "runtimeJarPath": null,
+                "executionEngine": "SHELL"
+            },
+            "processorAssetId": null,
+            "order": 1,
+            "dmrProcessorEntityIrn": "irn:processor:bpp:ABC.data.finance.gtpaapisourcelimitaccess:gtpaApiSourceLimitAccess-1",
+            "executorContext": null,
+            "podContext": {
+                "requestCores": 2.0,
+                "requestMemory": "4G"
+            }
+        }
+    ],
+    "clusterName": "bpp-dl3-prd-usw2-k8s",
+    "maxConcurrentProcessors": 1,
+    "soxPipeline": true,
+    "slaDuration": 0,
+    "eventingEnabled": true,
+    "live": true,
+    "collectionConfiguration": {
+        "inheritCollectionConfig": false,
+        "collectionName": "ABC.data.finance.ahasrc",
+        "inheritCollectionSchedule": false
+    },
+    "archived": false,
+    "scheduleSuspended": false,
+    "health": "HEALTHY",
+    "message": null,
+    "priority": "MEDIUM",
+    "lifecycle": "ACTIVE",
+    "createdDatetime": "2023-12-13T05:37:04.186Z",
+    "lastUpdatedDatetime": "2023-12-13T06:53:24.681Z",
+    "argoBaseName": "gtpaapisourcelimi-pymzcygmhu-8073845825251940801",
+    "variableConfiguration": {
+        "localVariables": [],
+        "globalVariables": []
+    },
+    "dmrPipelineEntityIrn": "irn:pipeline:bpp:ABC.data.finance.gtpaapisourcelimitaccess"
+}
